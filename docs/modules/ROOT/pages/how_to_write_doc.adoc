@@ -1,0 +1,37 @@
+== How to participate to this documentation
+
+The documentation of this project is located into the `docs/` folder and has to follow the xref:ref_documentation.adoc#_structure[Divio documentation structure].
+
+=== Write a new page
+
+To write a new page of documentation, create a new file inside the `docs\modules\ROOT\pages` subfolder, with the `.adoc` extension.
+You should then write your content using https://asciidoc.org/[Asciidoc language].
+
+To include your page in the resulting website, edit the `docs/modules/ROOT/nav.adoc` file to add an index entry under the right section.
+
+[source]
+----
+** xref:my_documentation.adoc[My documentation's title]
+----
+
+TIP: Use this https://powerman.name/doc/asciidoc[Asciidoc Cheatsheet]
+
+=== Convert an existing Markdown document
+
+If you have an existing Markdown document, you can convert it using the https://pandoc.org/[pandoc tool].
+
+Here is an example of usage of Pandoc tool, with some usefull arguments to produce a valid conversion 
+
+[source,shell]
+----
+$ pandoc -f markdown -t asciidoc --wrap=preserve --shift-heading-level-by=-1 --standalone --output=FILENAME.adoc FILENAME.md
+----
+
+=== Customize the appaerance
+
+Since the UI is builded in another project, you'll first have to clone this other repository https://github.com/camptocamp/antora-ui
+
+TODO : Describe how to modify : https://github.com/camptocamp/antora-ui/
+xref:my_documentation.adoc[My documentation's title]
+
+xref:antora-ui-c2c::index.adoc[Antora UI for Camptocamp]
