@@ -1,0 +1,18 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: puppet
+  namespace: argocd
+spec:
+  project: default
+  source:
+    path: examples/k3s-docker-puppet/argocd/puppet
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
+  destination:
+    namespace: puppet
+    server: {{ .Values.spec.destination.server }}
+  syncPolicy:
+    automated:
+      selfHeal: true
