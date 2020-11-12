@@ -28,8 +28,3 @@ resource "aws_cognito_user_pool_client" "client" {
     format("https://alertmanager.apps.%s.%s/oauth2/callback", var.cluster_name, var.base_domain),
   ]
 }
-
-resource "aws_cognito_user_pool_domain" "this" {
-  domain = var.cluster_name
-  user_pool_id = var.cognito_user_pool_id
-}
