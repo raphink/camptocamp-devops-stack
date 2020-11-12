@@ -146,6 +146,9 @@ kube-prometheus-stack:
         auth_url: https://${cognito_user_pool_domain}.auth.${aws_default_region}.amazoncognito.com/oauth2/authorize
         token_url: https://${cognito_user_pool_domain}.auth.${aws_default_region}.amazoncognito.com/oauth2/token
         api_url: https://${cognito_user_pool_domain}.auth.${aws_default_region}.amazoncognito.com/oauth2/userInfo
+      server:
+        domain: grafana.apps.${cluster_name}.${base_domain}
+        root_url: "https://%(domain)s"
     ingress:
       enabled: true
       annotations:
