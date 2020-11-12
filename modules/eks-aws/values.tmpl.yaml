@@ -96,6 +96,10 @@ kube-prometheus-stack:
     service:
       port: 9091
       targetPort: 9091
+      additionalPorts:
+        - name: web
+          port: 9090
+          targetPort: 9090
     prometheusSpec:
       portName: proxy
       containers:
@@ -151,7 +155,9 @@ kube-prometheus-stack:
     additionalDataSources:
       - name: Prometheus
         type: prometheus
-        url: http://cluster-monitoring-kube-pr-prometheus:9091/
+        # TODO: fix this 9091 with oauthPassThru
+        #url: http://cluster-monitoring-kube-pr-prometheus:9091/
+        url: http://cluster-monitoring-kube-pr-prometheus:9090/
         access: proxy
         isDefault: true
         jsonData:
