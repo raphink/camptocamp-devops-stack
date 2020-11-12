@@ -146,18 +146,18 @@ kube-prometheus-stack:
         domain: grafana.apps.${cluster_name}.${base_domain}
         root_url: "https://%(domain)s"
     sidecar:
-￼      datasources:
-￼        defaultDatasourceEnabled: false
-￼    additionalDataSources:
-￼      - name: Prometheus
-￼        type: prometheus
-￼        url: http://cluster-monitoring-kube-pr-prometheus:9091/
-￼        access: proxy
-￼        isDefault: true
-         jsonData:
-           tlsAuth: false
-           tlsAuthWithCACert: false
-           oauthPassThru: true
+      datasources:
+        defaultDatasourceEnabled: false
+    additionalDataSources:
+      - name: Prometheus
+        type: prometheus
+        url: http://cluster-monitoring-kube-pr-prometheus:9091/
+        access: proxy
+        isDefault: true
+        jsonData:
+          tlsAuth: false
+          tlsAuthWithCACert: false
+          oauthPassThru: true
     ingress:
       enabled: true
       annotations:
