@@ -159,6 +159,6 @@ resource "helm_release" "app_of_apps" {
 }
 
 resource "aws_cognito_user_pool_domain" "this" {
-  domain       = var.cluster_name
+  domain       = format("%s-domain", var.cluster_name)
   user_pool_id = var.cognito_user_pool_id
 }
