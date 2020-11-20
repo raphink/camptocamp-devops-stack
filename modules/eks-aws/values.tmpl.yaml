@@ -69,7 +69,12 @@ efs-provisioner:
 kube-prometheus-stack:
   alertmanager:
     service:
+      port: 9095
       targetPort: 9095
+      additionalPorts:
+        - name: web
+          port: 9093
+          targetPort: 9093
     alertmanagerSpec:
       containers:
         - args:
