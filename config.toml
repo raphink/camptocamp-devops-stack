@@ -1,4 +1,5 @@
-baseURL = "http://devops-stack.io/"
+#baseURL = "http://devops-stack.io/"
+baseURL = "https://raphink.github.io/camptocamp-devops-stack/"
 languageCode = "en-us"
 title = "DevOps Stack"
 theme = "bigspring"
