@@ -9,19 +9,19 @@ author = "Camptocamp"
 
 # CSS Plugins
 [[params.plugins.css]]
-link = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+link = "plugins/bootstrap/bootstrap.min.css"
 [[params.plugins.css]]
-link = "https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css"
+link = "plugins/themify-icons/themify-icons.css"
 [[params.plugins.css]]
-link = "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
+link = "plugins/slick/slick.css"
 
 # JS Plugins
 [[params.plugins.js]]
-link = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+link = "plugins/jQuery/jquery.min.js"
 [[params.plugins.js]]
-link = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"
+link = "plugins/bootstrap/bootstrap.min.js"
 [[params.plugins.js]]
-link = "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+link = "plugins/slick/slick.min.js"
 
 ############################## navigation ###############################
 
