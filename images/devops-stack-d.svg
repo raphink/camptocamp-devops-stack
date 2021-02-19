@@ -7,9 +7,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="270mm"
-   height="270mm"
-   viewBox="0 0 270.00001 270"
+   width="280mm"
+   height="280mm"
+   viewBox="0 0 280.00001 280"
    version="1.1"
    id="svg866"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
@@ -148,7 +148,7 @@
          id="feComposite1456" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter1545">
       <feFlood
@@ -180,7 +180,7 @@
          id="feComposite1543" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter1557">
       <feFlood
@@ -212,7 +212,7 @@
          id="feComposite1555" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter1569">
       <feFlood
@@ -244,7 +244,7 @@
          id="feComposite1567" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter1623">
       <feFlood
@@ -276,7 +276,7 @@
          id="feComposite1621" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter1635">
       <feFlood
@@ -308,7 +308,7 @@
          id="feComposite1633" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Drop Shadow"
        id="filter1647">
       <feFlood
@@ -347,9 +347,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.053310393"
-     inkscape:cx="4984.852"
-     inkscape:cy="-1732.9184"
+     inkscape:zoom="0.30156912"
+     inkscape:cx="1364.6959"
+     inkscape:cy="-4.7390037"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -1317,7 +1317,8 @@
            style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-family:Inter;-inkscape-font-specification:'Inter Semi-Bold';fill:#a5b1c2;fill-opacity:1;stroke-width:27.0099">&gt;</tspan></text>
     </g>
     <g
-       id="g2604">
+       id="g2604"
+       transform="translate(-446.63746,-427.01137)">
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:360.129px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#4b6584;fill-opacity:1;stroke:none;stroke-width:27.0099"
