@@ -15,7 +15,7 @@
     <div class="row justify-content-center mx-4">
       {{ range .quickstart.item }}
       <div class="col-lg-3 col-md-5 col-sm-6 mb-3 text-center">
-        <a href="{{ .link | safeURL }}" class="btn btn-primary">Get started with {{ .label }}</a>
+        <a href="{{ replace .link "__VERSION__" site.Params.version | safeURL }}" class="btn btn-primary">Get started with {{ .label }}</a>
       </div>
       {{ end }}
     </div>
