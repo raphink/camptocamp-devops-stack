@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Data Persistence :: Camptocamp’s DevOps Stack</title>
-    <link rel="canonical" href="https://devops-stack.io/docs/camptocamp-devops-stack/0.27.0/explanations/data_persistence.html">
+    <title>Kubernetes Upgrade Strategy :: Camptocamp’s DevOps Stack</title>
+    <link rel="canonical" href="https://devops-stack.io/docs/camptocamp-devops-stack/0.27.0/explanations/upgrade_strategy.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="icon" href="../../../_/img/c2c_favicon.png" type="image/x-icon">
@@ -119,10 +119,10 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="lifecycle_operations.html">Lifecycle Operations</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="data_persistence.html">Data Persistence</a>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="upgrade_strategy.html">Kubernetes Upgrade Strategy</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -170,24 +170,144 @@
   <ul>
     <li><a href="../index.html">Camptocamp’s DevOps Stack</a></li>
     <li>Explanations</li>
-    <li><a href="data_persistence.html">Data Persistence</a></li>
+    <li><a href="upgrade_strategy.html">Kubernetes Upgrade Strategy</a></li>
   </ul>
 </nav>
 </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">Data Persistence</h1>
+<h1 class="page">Kubernetes Upgrade Strategy</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>At Camptocamp, we prefer to have a clear separation
-between compute workload and storage.
-Hence, we try to have our clusters totally stateless and do data persistence
-out of the cluster (external RDBMS, NoSQL databases or object storage).</p>
+<p>A Kubernetes cluster is usually meant to last for years.
+However, Kubernetes versions are supported for one year,
+so the cluster needs to be regularly upgraded.
+This is a great opportunity to adopt a continuous upgrade strategy,
+which will contribute to limit Technical Debt on the long run.</p>
 </div>
 <div class="paragraph">
-<p>That means that we don&#8217;t use storageClasses that would allow self provisioning
-of Persistent Volumes (PVs).
-Moreover, usage of storageClasses would break the blue/green infrastructure
-paradigm that the DevOps Stack supports.</p>
+<p>Two strategies are possible: in-place upgrades or greenfield (aka blue/green).</p>
+</div>
+<div class="paragraph">
+<p>A greenfield approach avoids dealing with complex Kubernetes upgrades
+by reinstalling the cluster from scratch for every upgrade.
+The automation brought by the DevOps Stack makes it easy to adopt
+a greenfield approach, since the whole stack is managed as code.</p>
+</div>
+<div class="paragraph">
+<p>The DevOps Stack allows you to have one cluster per git branch
+(using one Terraform workspace per branch), so both strategies are possible.</p>
+</div>
+<div class="paragraph">
+<p>Below is a comparison of the two approaches.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_in_place_upgrade"><a class="anchor" href="#_in_place_upgrade"></a>In-place Upgrade</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The In-place upgrade strategy consists in upgrading the Kubernetes cluster
+while it is running.</p>
+</div>
+<div class="sect2">
+<h3 id="_pros"><a class="anchor" href="#_pros"></a>Pros</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>No need to redeploy everything on upgrade</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cons"><a class="anchor" href="#_cons"></a>Cons</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Something could go wrong during the upgrade,
+requiring to reinstall and redeploy everything from scratch,</p>
+</li>
+<li>
+<p>To mitigate this risk, set up a lab infrastructure with the exact same upgrade
+paths to test the upgrade on it beforehand,</p>
+</li>
+<li>
+<p>Hardly ever tested disaster strategy.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example_workflow"><a class="anchor" href="#_example_workflow"></a>Example workflow</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>a "production" branch for production deployments</p>
+</li>
+<li>
+<p>a "lab" branch to test upgrades before upgrading the production</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_green_field_upgrade"><a class="anchor" href="#_green_field_upgrade"></a>Green field Upgrade</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_pros_2"><a class="anchor" href="#_pros_2"></a>Pros</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>No risk to break cluster on upgrade,</p>
+</li>
+<li>
+<p>Major infrastructure changes possible without risking to break something
+(change Ingress Controller, switch to Service Mesh, change your network allocation plan…),</p>
+</li>
+<li>
+<p>Disaster recovery strategy tested on every upgrade.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cons_2"><a class="anchor" href="#_cons_2"></a>Cons</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>New challenges for data persistence: RWO volumes can&#8217;t be attached to both cluster at the same time,</p>
+</li>
+<li>
+<p>May require to synchronize some auto-generated objects to the new cluster
+(Secrets containing ServiceAccounts tokens if used outside cluster,
+Secrets containing Certificates generated by cert-manager,
+PersistentVolumes and PersistentVolumeClaims generated by StorageClasses…),</p>
+</li>
+<li>
+<p>Requires a fully automated deployment strategy (which is a good thing).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example_workflow_2"><a class="anchor" href="#_example_workflow_2"></a>Example workflow</h3>
+<div class="paragraph">
+<p>A "blue" branch and a "green" branch.
+Deploy a brand new cluster on the inactive branch,
+test everything and once happy, switch the DNS or a frontal Load Balancer
+to the inactive cluster that becomes the active one.</p>
+</div>
+<div class="paragraph">
+<p>When adopting a blue/green strategy, static resources
+—such as VPC, RDS or ElastiCache if you are on AWS—
+need to be declared in a separate Terraform project.</p>
+</div>
+</div>
+</div>
 </div>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
