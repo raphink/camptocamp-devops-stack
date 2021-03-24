@@ -15,7 +15,7 @@ org_logo = "images/logo/camptocamp.png"
 org_logo_width = "200px"
 org_url = "https://camptocamp.com"
 
-version = "0.27.0"
+version = "0.29.0"
 
 google_analytics = "G-GDBX9466LL"
 
@@ -111,13 +111,13 @@ weight = 2
 name = "About Us"
 url = "https://camptocamp.com"
 
-[[menu.footer_left]]
-name = "Our Expertise"
-url = "https://camptocamp.com"
-
-[[menu.footer_left]]
-name = "Our Services"
-url = "https://camptocamp.com"
+#[[menu.footer_left]]
+#name = "Our Expertise"
+#url = "https://camptocamp.com"
+#
+#[[menu.footer_left]]
+#name = "Our Services"
+#url = "https://camptocamp.com"
 
 
 # footer menu middle
@@ -134,17 +134,17 @@ name = "Bivac"
 url = "https://bivac.io"
 
 # footer menu right
-[[menu.footer_right]]
-name = "Privacy Policy"
-url = "privacy-policy"
-
-[[menu.footer_right]]
-name = "Terms & Conditions"
-url = "terms-conditions"
-
-[[menu.footer_right]]
-name = "FAQ"
-url = "faq"
+#[[menu.footer_right]]
+#name = "Privacy Policy"
+#url = "privacy-policy"
+#
+#[[menu.footer_right]]
+#name = "Terms & Conditions"
+#url = "terms-conditions"
+#
+#[[menu.footer_right]]
+#name = "FAQ"
+#url = "faq"
 
 [languages.en]
 footer_menu_left = "Camptocamp"

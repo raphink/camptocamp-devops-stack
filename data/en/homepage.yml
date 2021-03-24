@@ -24,8 +24,8 @@ banner:
         link: "/docs/camptocamp-devops-stack/__VERSION__/howtos/quickstart_eks.html"
       - label: AKS
         link: "/docs/camptocamp-devops-stack/__VERSION__/howtos/quickstart_aks.html"
-      #- label: SKS
-      #  link: "/docs/camptocamp-devops-stack/__VERSION__/howtos/quickstart_sks.html"
+      - label: SKS (soon)
+        #link: "/docs/camptocamp-devops-stack/__VERSION__/howtos/quickstart_sks.html"
       - label: K3S
         link: "/docs/camptocamp-devops-stack/__VERSION__/howtos/quickstart_k3s_docker.html"
 
@@ -149,6 +149,6 @@ call_to_action:
     - label: "Technical documentation"
       link : "docs"
     - label: "Request a demo"
-      link : "demo"
+      link : "mailto:info@camptocamp.com?subject=DevOps Stack Demo"
     - label: "Professional services"
       link : "https://www.camptocamp.com/infrastructure_solutions_and_services"
