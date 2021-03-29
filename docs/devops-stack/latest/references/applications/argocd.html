@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>ArgoCD Application :: DevOps Stack</title>
+    <title>Untitled :: DevOps Stack</title>
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../../../_/css/site.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -331,8 +331,8 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">ArgoCD Application</h1>
-<div id="preamble">
+<div class="sect1">
+<h2 id="_argocd_application"><a class="anchor" href="#_argocd_application"></a>ArgoCD Application</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This application installs and configures:</p>
@@ -402,107 +402,10 @@ enabled</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">argo-cd.controller.metrics.rules.enabled</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">argo-cd.controller.metrics.rules.spec[0].alert</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"ArgoAppMissing"</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">argo-cd.controller.metrics.rules.spec[0].annotations.description</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"ArgoCD has not reported any applications data for the past 15 minutes which means that it must be down or not functioning properly.  This needs to be resolved for this cloud to continue to maintain state.\n"</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">argo-cd.controller.metrics.rules.spec[0].annotations.summary</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"[ArgoCD] No reported applications"</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">argo-cd.controller.metrics.rules.spec[0].expr</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"absent(argocd_app_info)\n"</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">argo-cd.controller.metrics.rules.spec[0].for</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"15m"</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">argo-cd.controller.metrics.rules.spec[0].labels.severity</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"critical"</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">argo-cd.controller.metrics.rules.spec[1].alert</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"ArgoAppNotSynced"</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">argo-cd.controller.metrics.rules.spec[1].annotations.description</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"The application [{{</code>\{\{latexmath:[$labels.name}}`}} has not been synchronized for over 12 hours which means that the state of this cloud has drifted away from the state inside Git.\n"`</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">argo-cd.controller.metrics.rules.spec[1].annotations.summary</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"[{{</code>{{$]labels.name}}`}}] Application not synchronized"`</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">argo-cd.controller.metrics.rules.spec[1].expr</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"argocd_app_info{sync_status!=\"Synced\"} == 1\n"</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">argo-cd.controller.metrics.rules.spec[1].for</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"12h"</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">argo-cd.controller.metrics.rules.spec[1].labels.severity</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"warning"</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">argo-cd.controller.metrics.serviceMonitor.enabled</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">argo-cd.openshift.enabled</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">whether to enable OpenShift 4
-integration</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">argo-cd.repoServer.metrics.serviceMonitor.enabled</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">argo-cd.server.metrics.serviceMonitor.enabled</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">bool</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">argo-cd</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{"controller":{"metrics":{"rules":{"enabled":true,"spec":[{"alert":"ArgoAppMissing","annotations":{"description":"ArgoCD has not reported any applications data for the past 15 minutes which means that it must be down or not functioning properly.  This needs to be resolved for this cloud to continue to maintain state.\n","summary":"[ArgoCD] No reported applications"},"expr":"absent(argocd_app_info)\n","for":"15m","labels":{"severity":"critical"}},{"alert":"ArgoAppNotSynced","annotations":{"description":"The application [{{</code>\{\{\($labels.name}}`}} has not been synchronized for over 12 hours which means that the state of this cloud has drifted away from the state inside Git.\n","summary":"[{{`{{$\)labels.name}}`}}] Application not synchronized"},"expr":"argocd_app_info{sync_status!=\"Synced\"} == 1\n","for":"12h","labels":{"severity":"warning"}}]},"serviceMonitor":{"enabled":true}}},"repoServer":{"metrics":{"serviceMonitor":{"enabled":true}}},"server":{"metrics":{"serviceMonitor":{"enabled":true}}}}`</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">values passed to the argo-cd chart</p></td>
 </tr>
 </tbody>
 </table>
