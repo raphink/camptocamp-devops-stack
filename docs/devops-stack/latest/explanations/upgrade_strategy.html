@@ -7,13 +7,16 @@
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDBX9466LL"></script>
+    <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','G-GDBX9466LL')</script>
+    <script>var uiRootPath = '../../../_'</script>
     <link rel="icon" href="../../../_/img/favicon.png" type="image/x-icon">
   </head>
   <body class="article">
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://devops-stack.io"><img width="200px" src="/images/devops-stack-logo_light_by_c2c_black.png"/></a>
+      <a class="navbar-item" href="https://devops-stack.io/docs"><img width="200px" src="/images/devops-stack-logo_light_by_c2c_black.png"/></a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -105,6 +108,30 @@
     <a class="nav-link" href="../references/authentication.html">Authentication</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#ROOT:references/terraform_modules.adoc">Terraform Modules</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../references/terraform_modules/argocd-helm.html">ArgoCD Helm</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../references/terraform_modules/aks_azure.html">Azure AKS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../references/terraform_modules/eks_aws.html">AWS EKS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../references/terraform_modules/k3s_docker.html">K3s Docker</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../references/terraform_modules/k3s_libvirt.html">K3s Libvirt</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../references/terraform_modules/openshift4_aws.html">OpenShift 4 on AWS</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../references/changelog.html">Changelog</a>
   </li>
 </ul>
@@ -151,7 +178,7 @@
   </div>
   <ul class="components">
     <li class="component">
-      <span class="title">Camptocamp’s DevOps Stack</span>
+      <a class="title" href="../../../camptocamp-devops-stack/0.29.0/index.html">Camptocamp’s DevOps Stack</a>
       <ul class="versions">
         <li class="version is-latest">
           <a href="../../../camptocamp-devops-stack/0.29.0/index.html">0.29.0</a>
@@ -225,7 +252,7 @@
       </ul>
     </li>
     <li class="component is-current">
-      <span class="title">DevOps Stack</span>
+      <a class="title" href="../index.html">DevOps Stack</a>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="../index.html">latest</a>
@@ -251,6 +278,9 @@
   <div class="edit-this-page"><a href="https://github.com/raphink/devops-stack/edit/master/docs/modules/ROOT/pages/explanations/upgrade_strategy.adoc"><i class="fa fa-github-alt"></i>&nbsp;Edit this Page</a></div>
   </div>
   <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
 <article class="doc">
 <h1 class="page">Kubernetes Upgrade Strategy</h1>
 <div id="preamble">
@@ -386,9 +416,6 @@ need to be declared in a separate Terraform project.</p>
 </div>
 </div>
 </article>
-<aside class="toc sidebar" data-title="Contents" data-levels="2">
-  <div class="toc-menu"></div>
-</aside>
   </div>
 </main>
 </div>
