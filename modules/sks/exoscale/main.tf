@@ -41,8 +41,9 @@ provider "kubernetes" {
 }
 
 module "cluster" {
-  source  = "camptocamp/sks/exoscale"
-  version = "0.3.0"
+  source = "git::https://github.com/raphink/terraform-exoscale-sks.git/?ref=exo_compute"
+  #source  = "camptocamp/sks/exoscale"
+  #version = "0.3.0"
 
   kubernetes_version = var.kubernetes_version
   name               = var.cluster_name
