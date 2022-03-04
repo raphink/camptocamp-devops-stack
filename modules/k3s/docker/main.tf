@@ -1,6 +1,7 @@
 module "cluster" {
-  source  = "camptocamp/k3s/docker"
-  version = "1.0.1"
+  #source  = "camptocamp/k3s/docker"
+  #version = "1.0.1"
+  source = "git::https://github.com/raphink/terraform-docker-k3s.git?ref=bpf"
 
   network_name  = "bridge"
   cluster_name  = var.cluster_name
@@ -10,6 +11,8 @@ module "cluster" {
   server_config = [
     "--disable", "traefik",
     "--disable", "metrics-server",
+    "--flannel-backend", "none",
+    "--disable-network-policy",
   ]
 
   cluster_endpoint = var.cluster_endpoint

@@ -5,6 +5,70 @@ module "cluster" {
   cluster_name = var.cluster_name
 }
 
+provider "helm" {
+  kubernetes {
+    host                   = module.cluster.kubernetes.host
+    client_certificate     = module.cluster.kubernetes.client_certificate
+    client_key             = module.cluster.kubernetes.client_key
+    cluster_ca_certificate = module.cluster.kubernetes.cluster_ca_certificate
+  }
+}
+
+resource "helm_release" "cilium" {
+  name = "cilium"
+  repository = "cilium"
+  chart = "cilium"
+  version = "1.11.2"
+
+  namespace = "kube-system"
+  timeout = 10800
+
+  set {
+    name = "cgroup.autoMount.enabled"
+    value = "false"
+  }
+
+  set {
+    name = "cgroup.hostRoot"
+    value = "/cgroupv2"
+  }
+
+  set {
+    name = "cluster.name"
+    value = var.cluster_name
+  }
+
+  set {
+    name = "containerRuntime.integration"
+    value = "crio"
+  }
+
+  set {
+    name = "ipam.mode"
+    value = "cluster-pool"
+  }
+
+  set {
+    name = "kubeProxyReplacement"
+    value = "disabled"
+  }
+
+  set {
+    name = "operator.replicas"
+    value = "1"
+  }
+
+  set {
+    name = "serviceAccounts.cilium.name"
+    value = "cilium"
+  }
+
+  set {
+    name = "serviceAccounts.operator.name"
+    value = "cilium-operator"
+  }
+}
+
 provider "argocd" {
   server_addr = "127.0.0.1:8080"
   auth_token  = module.cluster.argocd_auth_token
