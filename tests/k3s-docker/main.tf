@@ -67,6 +67,29 @@ resource "helm_release" "cilium" {
     name = "serviceAccounts.operator.name"
     value = "cilium-operator"
   }
+
+
+  # Cilium Metrics (add cilium-pm.yaml)
+  set {
+    name = "prometheus.enabled"
+    value = "true"
+  }
+
+  set {
+    name = "operator.prometheus.enabled"
+    value = "true"
+  }
+
+  # Hubble Metrics (add cilium-pm.yaml)
+  set {
+    name = "hubble.enabled"
+    value = "true"
+  }
+
+  set {
+    name = "hubble.metrics.enabled"
+    value = "{dns,drop,tcp,flow,icmp,http}"
+  }
 }
 
 provider "argocd" {
